@@ -3,7 +3,6 @@ function depthFirstSearch(rootNode, vertices, edges){
   let stack = []; //create temporary stack
   stack.push(rootNode); //add all vertices to the stack
   let visited = [rootNode]; //create final array you will output
-
   while (stack.length != 0){
     let poppedNode = stack.pop();
     if (!poppedNode.discovered){
@@ -24,7 +23,7 @@ function findAdjacent(nodeName, vertices, edges){
   return edges.filter(function(edge){return edge.includes(nodeName)}) //first filters edges that have the nodeNames in them
               .map(function(edge){return edge.filter(function(node){return (node != nodeName)})[0]}) //maps edges where nodes are not equal in name
               .map(function(name){return findNode(name, vertices)}) //maps the nodes that match vertex names
-              .filter(function(node){return node.distance == null}) //filters all the ones that have null distances
+              .filter(function(node){return !node.discovered}) //filters all the ones that have null distances
 }
 
 
