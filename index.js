@@ -1,3 +1,4 @@
+
 function depthFirstSearch(rootNode, vertices, edges){
   let stack = []; //create temporary stack
   stack.push(rootNode); //add all vertices to the stack
